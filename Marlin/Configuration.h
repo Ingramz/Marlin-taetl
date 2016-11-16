@@ -130,8 +130,8 @@
 // The following define selects which electronics board you have.
 // Please choose the name from boards.h that matches your setup
 #ifndef MOTHERBOARD
-  //#define MOTHERBOARD BOARD_CNCONTROLS_11
-  #define MOTHERBOARD BOARD_CNCONTROLS_12
+  #define MOTHERBOARD BOARD_CNCONTROLS_11
+  //#define MOTHERBOARD BOARD_CNCONTROLS_12
 #endif
 
 // Optional custom name for your RepStrap or other custom machine
@@ -275,8 +275,8 @@
 // When temperature exceeds max temp, your heater will be switched off.
 // This feature exists to protect your hotend from overheating accidentally, but *NOT* from thermistor short/failure!
 // You should use MINTEMP for thermistor short/failure protection.
-#define HEATER_0_MAXTEMP 415
-#define HEATER_1_MAXTEMP 415
+#define HEATER_0_MAXTEMP 400
+#define HEATER_1_MAXTEMP 235
 #define HEATER_2_MAXTEMP 415
 #define HEATER_3_MAXTEMP 415
 #define BED_MAXTEMP 165
@@ -304,9 +304,9 @@
   // If you are using a pre-configured hotend then you can use one of the value sets by uncommenting it
 
     // Cartesio extruderV6 40W Normal
-    #define  DEFAULT_Kp 18
-    #define  DEFAULT_Ki 1
-    #define  DEFAULT_Kd 100
+    //#define  DEFAULT_Kp 18
+    //#define  DEFAULT_Ki 1
+    //#define  DEFAULT_Kd 100
 
     // Cartesio extruderV6 40W Volcano
     //#define  DEFAULT_Kp 50
@@ -317,6 +317,10 @@
     //#define  DEFAULT_Kp 18
     //#define  DEFAULT_Ki 1
     //#define  DEFAULT_Kd 100
+
+    #define  DEFAULT_Kp 14
+    #define  DEFAULT_Ki 2
+    #define  DEFAULT_Kd 100
 
 #endif // PIDTEMP
 
@@ -440,9 +444,9 @@
 #define X_MIN_ENDSTOP_INVERTING true  // set to true to invert the logic of the endstop.
 #define Y_MIN_ENDSTOP_INVERTING true  // set to true to invert the logic of the endstop.
 #define Z_MIN_ENDSTOP_INVERTING true  // set to true to invert the logic of the endstop.
-#define X_MAX_ENDSTOP_INVERTING false // set to true to invert the logic of the endstop.
-#define Y_MAX_ENDSTOP_INVERTING false // set to true to invert the logic of the endstop.
-#define Z_MAX_ENDSTOP_INVERTING false // set to true to invert the logic of the endstop.
+#define X_MAX_ENDSTOP_INVERTING true  // set to true to invert the logic of the endstop.
+#define Y_MAX_ENDSTOP_INVERTING true  // set to true to invert the logic of the endstop.
+#define Z_MAX_ENDSTOP_INVERTING true  // set to true to invert the logic of the endstop.
 #define Z_MIN_PROBE_ENDSTOP_INVERTING false // set to true to invert the logic of the endstop.
 
 
@@ -463,13 +467,13 @@
  * Default Axis Steps Per Unit (steps/mm)
  * Override with M92
  */
-#define DEFAULT_AXIS_STEPS_PER_UNIT   { 71.128, 71.128, 640, 152 }
+#define DEFAULT_AXIS_STEPS_PER_UNIT   { 50, 36, 640, 497 }
 
 /**
  * Default Max Feed Rate (mm/s)
  * Override with M203
  */
-#define DEFAULT_MAX_FEEDRATE          { 200, 200, 20, 20 }   // (mm/sec)
+#define DEFAULT_MAX_FEEDRATE          { 400, 400, 50, 10 }   // (mm/sec)
 
 /**
  * Default Max Acceleration (change/s) change = mm/s
@@ -477,7 +481,7 @@
  *
  * Maximum start speed for accelerated moves: { X, Y, Z, E }
  */
-#define DEFAULT_MAX_ACCELERATION      { 1000, 1000, 100, 10000 }
+#define DEFAULT_MAX_ACCELERATION      { 1500, 1500, 100, 1500 }
 
 /**
  * Default Acceleration (change/s) change = mm/s
@@ -487,8 +491,8 @@
  *   M204 R    Retract Acceleration
  *   M204 T    Travel Acceleration
  */
-#define DEFAULT_ACCELERATION          500     // X, Y, Z and E acceleration for printing moves
-#define DEFAULT_RETRACT_ACCELERATION  10000   // E acceleration for retracts
+#define DEFAULT_ACCELERATION          800     // X, Y, Z and E acceleration for printing moves
+#define DEFAULT_RETRACT_ACCELERATION  1500    // E acceleration for retracts
 #define DEFAULT_TRAVEL_ACCELERATION   1000    // X, Y, Z acceleration for travel (non printing) moves
 
 /**
@@ -500,8 +504,8 @@
  */
 #define DEFAULT_XJERK                 10.0
 #define DEFAULT_YJERK                 10.0
-#define DEFAULT_ZJERK                  0.4
-#define DEFAULT_EJERK                  5.0
+#define DEFAULT_ZJERK                  4.0
+#define DEFAULT_EJERK                  0.1
 
 
 //===========================================================================
@@ -644,7 +648,7 @@
 // :{ 0:'Low', 1:'High' }
 #define X_ENABLE_ON 1
 #define Y_ENABLE_ON 1
-#define Z_ENABLE_ON 1
+#define Z_ENABLE_ON 0
 #define E_ENABLE_ON 0 // For all extruders
 
 // Disables axis stepper immediately when it's not being used.
@@ -671,7 +675,7 @@
 
 // For direct drive extruder v9 set to true, for geared extruder set to false.
 #define INVERT_E0_DIR false
-#define INVERT_E1_DIR false
+#define INVERT_E1_DIR true
 #define INVERT_E2_DIR false
 #define INVERT_E3_DIR false
 
@@ -696,9 +700,9 @@
 #define X_MIN_POS 0
 #define Y_MIN_POS 0
 #define Z_MIN_POS 0
-#define X_MAX_POS 435
-#define Y_MAX_POS 270
-#define Z_MAX_POS 400
+#define X_MAX_POS 390
+#define Y_MAX_POS 250
+#define Z_MAX_POS 177
 
 //===========================================================================
 //========================= Filament Runout Sensor ==========================
@@ -888,13 +892,13 @@
 // @section temperature
 
 // Preheat Constants
-#define PREHEAT_1_TEMP_HOTEND 190
+#define PREHEAT_1_TEMP_HOTEND 192
 #define PREHEAT_1_TEMP_BED     50
-#define PREHEAT_1_FAN_SPEED     0 // Value from 0 to 255
+#define PREHEAT_1_FAN_SPEED    51 // Value from 0 to 255
 
-#define PREHEAT_2_TEMP_HOTEND 240
-#define PREHEAT_2_TEMP_BED    110
-#define PREHEAT_2_FAN_SPEED     0 // Value from 0 to 255
+#define PREHEAT_2_TEMP_HOTEND 214
+#define PREHEAT_2_TEMP_BED     50
+#define PREHEAT_2_FAN_SPEED    51 // Value from 0 to 255
 
 //
 // Nozzle Park -- EXPERIMENTAL
