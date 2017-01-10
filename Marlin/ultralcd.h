@@ -102,9 +102,9 @@
 
     #define REPRAPWORLD_BTN_OFFSET 0 // bit offset into buttons for shift register values
 
-    #define BLEN_REPRAPWORLD_KEYPAD_F3     0
-    #define BLEN_REPRAPWORLD_KEYPAD_F2     1
-    #define BLEN_REPRAPWORLD_KEYPAD_F1     2
+    #define BLEN_REPRAPWORLD_KEYPAD_F3     2
+    #define BLEN_REPRAPWORLD_KEYPAD_F2     0
+    #define BLEN_REPRAPWORLD_KEYPAD_F1     1
     #define BLEN_REPRAPWORLD_KEYPAD_DOWN   3
     #define BLEN_REPRAPWORLD_KEYPAD_RIGHT  4
     #define BLEN_REPRAPWORLD_KEYPAD_MIDDLE 5
